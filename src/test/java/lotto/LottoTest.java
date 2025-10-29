@@ -22,4 +22,14 @@ class LottoTest {
     }
 
     // TODO: 추가 기능 구현에 따른 테스트 코드 작성
+    //로또 숫자가 45를 넘어가면 튕겨내기
+    @displayName("로또 번호는 1과 45사이에 있어야합니다.")
+    @Test
+    void 로또_번호는_1과_45사이에_있어야합니다(){
+        assertThatThrownBy(() -> new Lotto(List.of(1, 2, 3, 4, 5, 47)))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new Lotto(List.of(-1, 2, 3, 4, 5, 7)))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
