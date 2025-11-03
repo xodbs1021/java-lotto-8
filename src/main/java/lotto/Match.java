@@ -17,6 +17,12 @@ public class Match {
         this.lotto = lotto;
     }
 
+    public void match() {
+        Map<String, Integer> total = initializeResultMap();
+        calculateWinnings(total);
+        printResult(total);
+    }
+
     private static Map<String,Integer> initializeResultMap() {
         Map<String, Integer> total = new HashMap<>();
         total.put(FIFTH.getValue(), 0);
