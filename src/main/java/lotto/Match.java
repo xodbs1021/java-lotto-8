@@ -17,3 +17,12 @@ public class Match {
         this.lotto = lotto;
     }
 
+    private static Map<String,Integer> initializeResultMap() {
+        Map<String, Integer> total = new HashMap<>();
+        total.put(FIFTH.getValue(), 0);
+        total.put(FOURTH.getValue(), 0);
+        total.put(THIRD.getValue(), 0);
+        total.put(SECOND.getValue(), 0);
+        total.put(FIRST.getValue(), 0);
+        return total;
+    }
