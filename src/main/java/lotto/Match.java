@@ -90,3 +90,19 @@ public class Match {
         System.out.println(rank.getMatchCount() + "개 일치, 보너스 볼 일치 (" + formattedPrize + "원) - " + total.get(rank.getValue()) + "개");
     }
 
+    private double calculateProfitRate(Map<String, Integer> total) {
+        long purchaseAmount = (long) result.getLottoCount() * 1000L;
+
+        long totalWinnings = (long)FIFTH.getValue2() * total.get(FIFTH.getValue())
+                + (long)FOURTH.getValue2() * total.get(FOURTH.getValue())
+                + (long)THIRD.getValue2() * total.get(THIRD.getValue())
+                + (long)SECOND.getValue2() * total.get(SECOND.getValue())
+                + (long)FIRST.getValue2() * total.get(FIRST.getValue());
+
+        if (purchaseAmount == 0) {
+            return 0.0;
+        }
+
+        return ((double) totalWinnings / (double) purchaseAmount) * 100.0;
+    }
+}
