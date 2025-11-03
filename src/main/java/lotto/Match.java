@@ -64,3 +64,17 @@ public class Match {
         }
     }
 
+    private void printResult(Map<String, Integer> total) {
+        System.out.println("당첨통계\n---");
+        System.out.println();
+
+        printRankResult(total, FIFTH);
+        printRankResult(total, FOURTH);
+        printRankResult(total, THIRD);
+        printBonusRankResult(total, SECOND);
+        printRankResult(total, FIRST);
+
+        double profitRate = calculateProfitRate(total);
+        System.out.printf("총 수익률은 %.1f%%입니다.\n", profitRate);
+    }
+
