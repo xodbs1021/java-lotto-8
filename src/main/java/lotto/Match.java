@@ -37,3 +37,30 @@ public class Match {
             updateTotalWinnings(total, matchCount, bonusMatch);
         }
     }
+
+    private static void updateTotalWinnings(Map<String, Integer> total, int matchCount, boolean bonusMatch) {
+        if (matchCount == 6) {
+            total.merge(FIRST.getValue(), 1, Integer::sum);
+            return;
+        }
+
+        if (matchCount == 5) {
+            if (bonusMatch) {
+                total.merge(SECOND.getValue(), 1, Integer::sum);
+                return;
+            }
+            total.merge(THIRD.getValue(), 1, Integer::sum);
+            return;
+        }
+
+        if (matchCount == 4) {
+            total.merge(FOURTH.getValue(), 1, Integer::sum);
+            return;
+        }
+
+        if (matchCount == 3) {
+            total.merge(FIFTH.getValue(), 1, Integer::sum);
+            return;
+        }
+    }
+
