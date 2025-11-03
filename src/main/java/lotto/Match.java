@@ -78,3 +78,15 @@ public class Match {
         System.out.printf("총 수익률은 %.1f%%입니다.\n", profitRate);
     }
 
+    private void printRankResult(Map<String, Integer> total, staticWord rank) {
+        String formattedPrize = String.format("%,d", rank.getValue2());
+
+        System.out.println(rank.getMatchCount() + "개 일치 (" + formattedPrize + "원) - " + total.get(rank.getValue()) + "개");
+    }
+
+    private void printBonusRankResult(Map<String, Integer> total, staticWord rank) {
+        String formattedPrize = String.format("%,d", rank.getValue2());
+
+        System.out.println(rank.getMatchCount() + "개 일치, 보너스 볼 일치 (" + formattedPrize + "원) - " + total.get(rank.getValue()) + "개");
+    }
+
