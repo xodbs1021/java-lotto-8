@@ -26,3 +26,14 @@ public class Match {
         total.put(FIRST.getValue(), 0);
         return total;
     }
+
+    private void calculateWinnings(Map<String, Integer> total) {
+        for(List<Integer> purchasedLotto : result.numbers) {
+            int matchCount = (int) purchasedLotto.stream()
+                    .filter(lotto.getNumbers()::contains)
+                    .count();
+            boolean bonusMatch = purchasedLotto.contains(bonus);
+
+            updateTotalWinnings(total, matchCount, bonusMatch);
+        }
+    }
